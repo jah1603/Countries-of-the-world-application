@@ -1,6 +1,6 @@
 const CountryView = require('./views/country_view.js');
 const SelectView = require('./views/select_view.js');
-const Country = require('./models/select_view.js');
+const Country = require('./models/country.js');
 
 
 document.addEventListener('DOMContentLoaded', () => {

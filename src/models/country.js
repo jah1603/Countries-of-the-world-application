@@ -5,14 +5,28 @@ const Country = function () {
   this.countries = null;
 }
 
+Country.prototype.bindEvents = function(){
+  this.getData();
+
+  PubSub.subscribe('SelectView:change', (evt) => {
+    const selectedIndex = evt.detail;
+    this.displayCountryInfo(selectedIndex);
+})
+};
+
 Country.prototype.getData = function () {
 
-  const request = new Request('https://restcountries.eu/');
+  const request = new Request('https://restcountries.eu/rest/v2/all');
   request.get((data) => {
-    this.countries = data.countries;
+    this.countries = data;
     console.log(data);
-    PubSub.publish('Joke:joke-loaded', this.text);
+    PubSub.publish('Country:country-data-loaded', this.countries);
   });
 };
 
-module.exports = Joke;
+Country.prototype.displayCountryInfo = function(countryIndex){
+  const countrySelected = this.countries[countryIndex];
+  PubSub.publish('Country:selected-country-ready', countrySelected)
+};
+
+module.exports = Country;
