@@ -47,8 +47,8 @@ CountryView.prototype.renderRegionContent = function (country) {
 };
 
 CountryView.prototype.renderLanguagesHeader = function () {
-  const languageHeader = document.createElement('h4');
-  languageHeader.textContent = "National languages";
+  const languageHeader = document.createElement('h2');
+  languageHeader.textContent = "National languages:";
   this.container.appendChild(languageHeader);
 };
 
