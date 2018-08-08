@@ -13,6 +13,8 @@ CountryView.prototype.bindEvents = function () {
     this.renderFlag(country);
     this.renderRegionHeader();
     this.renderRegionContent(country);
+    this.renderPopulationHeader();
+    this.renderPopulationContent(country);
     this.renderLanguagesHeader();
     this.renderLanguages(country);
 
@@ -44,6 +46,18 @@ CountryView.prototype.renderRegionContent = function (country) {
   const regionContent = document.createElement('p');
   regionContent.textContent = `${country.subregion}`;
   this.container.appendChild(regionContent);
+};
+
+CountryView.prototype.renderPopulationHeader = function () {
+  const populationHeader = document.createElement('h2');
+  populationHeader.textContent = "Population:";
+  this.container.appendChild(populationHeader);
+};
+
+CountryView.prototype.renderPopulationContent = function (country) {
+  const populationContent = document.createElement('p');
+  populationContent.textContent = `${country.population}`;
+  this.container.appendChild(populationContent);
 };
 
 CountryView.prototype.renderLanguagesHeader = function () {
