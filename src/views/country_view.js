@@ -10,9 +10,12 @@ CountryView.prototype.bindEvents = function () {
     this.container.innerHTML = " ";
     const country = evt.detail;
     this.renderCountryHeader(country);
+    this.renderFlag(country);
     this.renderRegionHeader();
     this.renderRegionContent(country);
+    this.renderLanguagesHeader();
     this.renderLanguages(country);
+
   });
 }
 
@@ -20,6 +23,15 @@ CountryView.prototype.renderCountryHeader = function (country) {
   const countryHeader = document.createElement('h1');
   countryHeader.textContent = country.name;
   this.container.appendChild(countryHeader);
+};
+
+CountryView.prototype.renderFlag = function (country) {
+  const flag = document.createElement('img');
+  flag.src = `${country.flag}`;
+  flag.style.height = "12rem"
+  flag.style.width = "24rem"
+  this.container.appendChild(flag);
+
 };
 
 CountryView.prototype.renderRegionHeader = function () {
@@ -32,6 +44,12 @@ CountryView.prototype.renderRegionContent = function (country) {
   const regionContent = document.createElement('h3');
   regionContent.textContent = `${country.subregion}`;
   this.container.appendChild(regionContent);
+};
+
+CountryView.prototype.renderLanguagesHeader = function () {
+  const languageHeader = document.createElement('h4');
+  languageHeader.textContent = "National languages";
+  this.container.appendChild(languageHeader);
 };
 
 CountryView.prototype.renderLanguages = function (country){
