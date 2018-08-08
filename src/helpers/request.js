@@ -14,7 +14,6 @@ Request.prototype.get = function (onComplete) {
     }
 
     const jsonString = xhr.responseText;
-    console.log(jsonString);
     const data = JSON.parse(jsonString);
     onComplete(data);
 });

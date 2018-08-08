@@ -15,7 +15,7 @@ CountryView.prototype.bindEvents = function () {
 
 CountryView.prototype.render = function (country) {
   const countryHeader = document.createElement('h1');
-  this.container.appendChild(countryHeader);
   countryHeader.textContent = country.name;
+  this.container.appendChild(countryHeader);
 };
 module.exports = CountryView;

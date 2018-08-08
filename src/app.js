@@ -16,5 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const country = new Country()
   country.getData();
+  country.bindEvents();
 
 });
