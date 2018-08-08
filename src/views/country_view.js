@@ -41,7 +41,7 @@ CountryView.prototype.renderRegionHeader = function () {
 };
 
 CountryView.prototype.renderRegionContent = function (country) {
-  const regionContent = document.createElement('h3');
+  const regionContent = document.createElement('p');
   regionContent.textContent = `${country.subregion}`;
   this.container.appendChild(regionContent);
 };
